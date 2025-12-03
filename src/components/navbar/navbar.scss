@@ -1,28 +1,36 @@
-.navbar{
+.navbar {
     height: 100px;
-
-    .wrapper{
-        max-width: 1366px;
-        margin:auto;
+  
+    .wrapper {
+      max-width: 1366px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 20px; // Added padding so it doesn't touch the screen edges on small screens
+  
+      span {
+        font-weight: bold;
+        font-size: 20px; // Slightly larger for better readability
+      }
+  
+      .social {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-
-        span{
-            font-weight: bold;
+        gap: 20px;
+  
+        a {
+          color: white; // Default icon color
+          font-size: 24px; // Size of the icons
+          transition: all 0.3s ease;
+          display: flex; // Keeps the icon centered in the a tag
+          align-items: center;
+  
+          &:hover {
+            color: orange; // Highlight color on hover
+            transform: scale(1.2); // Subtle zoom effect
+          }
         }
-
-        .social{
-            display: flex;
-            gap: 20px;
-
-            img{
-                width: 18px;
-                height: 18px;
-            }
-        }
-
-
+      }
     }
-}
+  }

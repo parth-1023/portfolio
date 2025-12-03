@@ -1,64 +1,143 @@
-.hero{
-
+.hero {
     height: calc(100vh - 100px);
     overflow: hidden;
     background: linear-gradient(180deg, #0c0c1d, #111132);
     position: relative;
+  
+    // --- FIXED IMAGE CONTAINER ---
+    .imageContainer {
+      height: 100%; // 1. Take up full height of the parent
+      width: 50%;   // Ensure it stays on the right half
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;   // Ensure it sits above background but below text if overlap
 
-    .imageContainer{
-        height: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
+      display: flex; 
+      align-items: flex-end; // 2. Push the image to the BOTTOM (Floor)
+      justify-content: center; // Center it horizontally in the right half
+      
+      img {
+          width: 120%;  // Maintain aspect ratio
+          height: 120%;  // 3. Reduce the image size here (Change to 70% or 90% to adjust)
+          object-fit: contain;
+          margin-bottom: 20px; // Optional: Adds a tiny breathing room from the very edge
+      }
     }
-
-    .slidingTextContainer{
-        position: absolute;
-        font-size: 50vh;
-        bottom: -120px;
-        white-space: nowrap;
-        color: #ffffff09;
-        width: 50%;
-        font-weight: bold;
+  
+    .slidingTextContainer {
+      position: absolute;
+      font-size: 50vh;
+      bottom: -120px;
+      white-space: nowrap;
+      color: #ffffff09;
+      width: 50%;
+      font-weight: bold;
+      z-index: 0; // Move behind image
     }
-
-    .wrapper{
-        max-width: 1366px;
-        height: 100%;
-        margin: auto;
+  
+    .wrapper {
+      max-width: 1366px;
+      height: 100%;
+      margin: auto;
     }
-
-    .textContainer{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 40px;
-
-        h2{
-            font-size: 30px;
-            color: rebeccapurple;
-            letter-spacing: 10px;
+  
+    .textContainer {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      width: 50%; 
+      position: relative; 
+      z-index: 2; 
+  
+      h2 {
+        font-size: 30px;
+        color: orange;
+        letter-spacing: 10px;
+      }
+  
+      h1 {
+        font-size: 88px;
+      }
+  
+      p {
+          font-size: 20px;
+          color: lightgray;
+      }
+  
+      .buttons {
+          display: flex;
+          gap: 20px;
+  
+        a {
+            text-decoration: none;
         }
-
-        h1{
-            font-size: 88px;
+  
+        button {
+          padding: 20px;
+          border: 1px solid white;
+          border-radius: 10px;
+          background-color: transparent;
+          color: white;
+          font-weight: 300; 
+          cursor: pointer; 
+          transition: all 0.3s ease;
+  
+          &:hover {
+              background-color: white;
+              color: black;
+          }
         }
-
-        .buttons{
-            button{
-                padding: 20px;
-                border: 1px solid white;
-                border-radius: 10px;
-                background-color: transparent;
-                color: white;
-                margin-right: 20px;
-                font-weight: 300px;
-            }
-        }
-
-        img{
-            width: 50px;
-        }
+      }
+  
+      img {
+        width: 50px;
+      }
     }
-}
+  }
+  
+  // Mobile Responsiveness
+  @media (max-width: 768px) {
+      .hero {
+          .wrapper {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .textContainer {
+              width: 100%;
+              height: 50%;
+              padding: 20px;
+              align-items: center;
+              text-align: center;
+              
+              h1 {
+                  font-size: 48px;
+              }
+              
+              h2 {
+                  font-size: 20px;
+                  letter-spacing: 5px;
+              }
+              
+              p {
+                  font-size: 16px;
+                  width: 90%;
+              }
+          }
+          
+          // Fix Mobile Image Alignment as well
+          .imageContainer {
+              width: 100%;
+              height: 50%;
+              position: relative;
+              align-items: flex-end; // Keep grounded on mobile too
+              
+              img {
+                  height: 100%; // Maximize space on mobile
+              }
+          }
+      }
+  }

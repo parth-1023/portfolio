@@ -3,7 +3,7 @@ html{
     scroll-behavior: smooth;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -26,6 +26,12 @@ section{
     height: 100vh;
     scroll-snap-align: center;
 }
+
+section.auto-height {
+    height: auto !important; // Allow the section to grow as long as needed
+    min-height: 100vh;       // Ensure it is at least one screen
+    scroll-snap-align: start !important; // Align to top, prevents glitchy scrolling
+  }
 
 .course{
     height: 100vh;

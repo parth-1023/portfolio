@@ -1,0 +1,246 @@
+.experience {
+    // Use the same background as your Services component for consistency
+    background: linear-gradient(180deg, #111132, #0c0c1d);
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    overflow: visible;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 50px 20px 100px 20px; 
+  
+    .titleContainer {
+      margin-bottom: 80px;
+      h1 {
+        font-size: 48px;
+        font-weight: 100;
+        color: white;
+      }
+    }
+  
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+  
+      // --- The Central Lines ---
+      
+      // The static gray background line
+      .progressBarBackground {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: rgba(255, 255, 255, 0.2); // Faint line
+        margin-left: -2px;
+        border-radius: 2px;
+        z-index: 0;
+      }
+  
+      // The animated orange progress line
+      .progressBar {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: orange; // Highlight color
+        margin-left: -2px;
+        transform-origin: top; // Grows from top down
+        border-radius: 2px;
+        z-index: 1;
+      }
+  
+      // --- The Cards ---
+      .timelineItem {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 50px; // Spacing between items
+        position: relative;
+        width: 50%; // Occupies half the width
+        z-index: 2;
+  
+        // Logic for alternating sides
+        &.left {
+          align-self: flex-start;
+          padding-right: 40px;
+          text-align: right;
+  
+          .content {
+              align-items: flex-end; // Align internal flex items to right
+              
+              .header {
+                  flex-direction: row-reverse; // Flip header so icon is on inside
+              }
+          }
+          
+          .dot {
+            right: -10px; // Position dot on the center line
+          }
+        }
+  
+        &.right {
+          align-self: flex-end;
+          padding-left: 40px;
+          justify-content: flex-start;
+          text-align: left;
+  
+          .content {
+              align-items: flex-start;
+          }
+  
+          .dot {
+            left: -10px; // Position dot on the center line
+          }
+        }
+  
+        .dot {
+          position: absolute;
+          top: 20px;
+          width: 20px;
+          height: 20px;
+          background: #111132; // Match bg
+          border: 4px solid orange; // Orange ring
+          border-radius: 50%;
+          z-index: 3;
+        }
+  
+        .content {
+          background: rgba(255, 255, 255, 0.05); // Glassmorphism dark
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 30px;
+          border-radius: 15px;
+          width: 100%;
+          max-width: 500px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+  
+          .header {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+              gap: 15px;
+  
+              .role-group {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                  
+                  h3 {
+                      font-size: 22px;
+                      color: white;
+                      margin: 0;
+                  }
+  
+                  .badge {
+                      font-size: 12px;
+                      background: #00c67e; // Green success color
+                      color: #000;
+                      padding: 2px 8px;
+                      border-radius: 4px;
+                      font-weight: bold;
+                      width: fit-content;
+                      // Alignment fix based on parent text-align
+                      margin-left: auto; 
+                  }
+              }
+              // Fix badge alignment for Right side items
+              // We use SCSS nesting to override the margin for right-aligned items
+          }
+  
+          .subtitle {
+              font-size: 14px;
+              color: orange;
+              font-weight: 500;
+          }
+  
+          ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              
+              li {
+                  color: lightgray;
+                  font-size: 14px;
+                  margin-bottom: 8px;
+                  line-height: 1.5;
+              }
+          }
+  
+          .tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+              
+              .tag {
+                  background: rgba(255, 166, 0, 0.1);
+                  color: orange;
+                  font-size: 12px;
+                  padding: 5px 10px;
+                  border-radius: 15px;
+              }
+          }
+  
+          .icon-box {
+              background: rgba(255,255,255,0.1);
+              padding: 10px;
+              border-radius: 10px;
+              color: white;
+              font-size: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+        }
+      }
+    }
+  
+    // Mobile Responsiveness
+    @media (max-width: 768px) {
+      .timeline {
+        .progressBar, .progressBarBackground {
+          left: 20px; // Move line to left side
+        }
+  
+        .timelineItem {
+          width: 100%;
+          padding-left: 50px !important; // Clear space for line
+          padding-right: 0 !important;
+          text-align: left !important;
+          align-self: flex-start !important;
+  
+          &.left .content {
+              align-items: flex-start;
+              .header {
+                  flex-direction: row; // Reset header direction
+              }
+              .role-group .badge {
+                  margin-left: 0;
+              }
+          }
+          
+          .dot {
+              left: 10px !important; // Align dot to new line position
+              right: auto !important;
+          }
+        }
+      }
+    }
+  }
+  
+  // Specific override for badge alignment on right-side items
+  .timelineItem.right .content .header .role-group .badge {
+      margin-left: 0;
+      margin-right: auto;
+  }

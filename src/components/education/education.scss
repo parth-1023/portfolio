@@ -1,0 +1,189 @@
+.education {
+    background: linear-gradient(180deg, #0c0c1d, #111132);
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    overflow: visible;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  
+    .titleContainer {
+      flex: 0; // Don't take up extra space
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px; // Space between title and cards
+      text-align: center;
+  
+      .title {
+        h1 {
+            font-size: 48px;
+            font-weight: 100;
+          text-transform: uppercase;
+        }
+      }
+    }
+  
+    .listContainer {
+      display: flex;
+      justify-content: center;
+      gap: 30px; // Space between cards
+      max-width: 1366px;
+      margin: auto;
+      width: 100%;
+      flex-wrap: wrap; // Wrap on smaller screens
+  
+      .box {
+        background: transparent;
+        // Subtle border like the image
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        border-radius: 20px;
+        padding: 40px; // Spacious padding like the image
+        flex: 1;
+        min-width: 400px; // Ensure cards don't get too skinny
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px; // Space between sections inside the card
+        transition: all 0.3s ease;
+        cursor: default;
+        
+        // LEFT ALIGNMENT (Crucial for the new look)
+        align-items: flex-start;
+        text-align: left;
+  
+        .header {
+            display: flex;
+            flex-direction: row; // Icon next to text
+            gap: 20px;
+            align-items: flex-start; // Align top of icon with text
+            width: 100%;
+  
+            .icon {
+                font-size: 32px;
+                color: orange;
+                // Dark background circle behind icon
+                background: rgba(255, 166, 0, 0.1); 
+                padding: 18px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0; // Prevent icon from squishing
+            }
+  
+            .details {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding-top: 5px; // Align visually with icon center
+  
+                h3 {
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin: 0;
+                    line-height: 1.3;
+                    color: white;
+                }
+  
+                span {
+                    font-size: 14px;
+                    color: orange; // The yellow/orange accent color
+                    font-weight: 600;
+                }
+            }
+        }
+  
+        .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d1d1d1; // Light gray text
+            margin: 0;
+        }
+  
+        .subjects {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            align-items: flex-start; // Align to left
+  
+            .subject-title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 700;
+                font-size: 16px;
+                color: white;
+                
+                svg {
+                    color: orange;
+                }
+            }
+  
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: flex-start; // Align tags to left
+  
+                .tag {
+                    // Dark pill background like image
+                    background: rgba(255, 255, 255, 0.08); 
+                    color: #e0e0e0;
+                    padding: 8px 16px;
+                    border-radius: 8px; // Slightly squarer radius
+                    font-size: 13px;
+                    white-space: nowrap;
+                    font-weight: 500;
+                }
+            }
+        }
+  
+        // Hover State
+        &:hover {
+             background: rgba(255, 255, 255, 0.03); // Subtle lighten on hover
+        }
+      }
+    }
+  
+    // Mobile Responsiveness
+    @media (max-width: 900px) {
+      height: auto;
+      
+      .titleContainer {
+          margin-bottom: 40px;
+          .title h1 {
+              font-size: 36px;
+          }
+      }
+  
+      .listContainer {
+          flex-direction: column;
+          align-items: center;
+          
+          .box {
+              width: 100%;
+              min-width: unset; // Remove min-width constraint on mobile
+              padding: 30px;
+              
+              .header {
+                  // Keep header layout row even on mobile unless very small
+                  flex-direction: row; 
+                  .icon {
+                      font-size: 24px;
+                      padding: 15px;
+                  }
+                  .details h3 {
+                      font-size: 20px;
+                  }
+              }
+          }
+      }
+    }
+  }
