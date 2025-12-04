@@ -2,11 +2,23 @@
 
 .contact {
   height: 100%;
-  max-width: 1366px;
-  margin: auto;
+  width: 100%; // Ensure it spans full width
+  background: linear-gradient(180deg, #111132, #505064); // Background applies to whole strip
+  
+  // Center the wrapper inside the full-width strip
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 50px;
+
+  .wrapper {
+      max-width: 1366px; // Limit content width
+      width: 100%; // Fill up to 1366px
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      z-index: 99;
+      padding: 0 20px; // Prevent touching edges on small screens
 
 
   .textContainer {
@@ -81,4 +93,5 @@
       }
     }
   }
+}
 }

@@ -61,6 +61,22 @@ const experienceData = [
     icon: <FaBriefcase />,
     current: false,
   },
+
+  {
+    id: 5,
+    title: "Machine Learning Research Intern",
+    company: "Thadomal Shahani Eng. College",
+    location: "Mumbai, India",
+    date: "July 2021",
+    desc: [
+      "Achieved 81.74% accuracy in forecasting US university admission chances using K-Means clustering and Euclidean distance.",
+      "Reduced student research time and consultation costs by modeling factors like GPA, GRE, and TOEFL.",
+    ],
+    tags: ["Machine Learning", "Python", "K-Means", "IEEE Xplore"],
+    icon: <FaUniversity />, // Uses existing import
+    current: false,
+  },
+  
 ];
 
 const Experience = () => {

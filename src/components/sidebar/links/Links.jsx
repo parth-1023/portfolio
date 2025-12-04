@@ -33,7 +33,7 @@ const items =[
   "Portfolio",
   "Experience",
   "Education",
-  "Contact"
+  "Contact Me"
 
 
 ]

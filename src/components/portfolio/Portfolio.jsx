@@ -5,27 +5,31 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "React Commerce",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Physics Simulator",
+    img: "./physics.jpeg",
+    desc: "An interactive, game-based physics learning platform where students can simulate physics concepts, run calculations, and receive real-time feedback.",
+    link: "https://parth-1023.github.io/game-gem/",
   },
   {
     id: 2,
-    title: "Next.js Blog",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "GPThermo",
+    img: "./gpthermo.png",
+    desc: "A distributed, AI-driven web application leveraging OpenAI and LangChain to provide guided problem-solving for complex thermodynamics problems.",
+    link: "https://gpthermo.wpi.edu/",
   },
   {
     id: 3,
-    title: "Vanilla JS App",
-    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "AI Pong",
+    img: "./aipong.png",
+    desc: "A classic Pong game reimagined with AI opponents trained using reinforcement learning techniques to challenge players of all levels.",
+    link: "https://github.com/parth-1023/AI-pong",
   },
   {
     id: 4,
-    title: "Music App",
-    img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Cricket World Cup Viz",
+    img: "./dataviz.png",
+    desc: "Data visualization dashboard showcasing stats and insights from the Cricket World Cup using dynamic charts and graphs.",
+    link: "https://vizhub.com/parth-1023/2e6f345d7b304c5ead755144aa27438b",
   },
 ];
 
@@ -36,19 +40,23 @@ const Single = ({ item }) => {
     target: ref,
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [-500, 500]);
+  const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
   return (
-    <section >
+    <section>
       <div className="container">
         <div className="wrapper">
           <div className="imageContainer" ref={ref}>
             <img src={item.img} alt="" />
           </div>
-          <motion.div className="textContainer" style={{y}}>
+          <motion.div className="textContainer" style={{ y }}>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button>See Demo</button>
+            {/* Link wrapper for the button */}
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              <motion.button whileHover={{ scale: 1.1, backgroundColor: "white", color: "black" }}
+              >Check it out!</motion.button>
+            </a>
           </motion.div>
         </div>
       </div>
@@ -75,9 +83,44 @@ const Portfolio = () => {
         <h1>Projects</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
+      
       {items.map((item) => (
         <Single item={item} key={item.id} />
       ))}
+
+      <section>
+        <div className="container">
+            <div 
+              className="wrapper" 
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                gap: '30px' 
+              }}
+            >
+                <h2 style={{ fontSize: '56px', textAlign: 'center' }}>Check out more of my work</h2>
+                <a href="https://github.com/parth-1023" target="_blank" rel="noopener noreferrer">
+                    <motion.button 
+                        whileHover={{ scale: 1.1, backgroundColor: "white", color: "black" }}
+                        style={{ 
+                            padding: '20px 60px', 
+                            fontSize: '20px', 
+                            cursor: 'pointer', 
+                            backgroundColor: 'orange', 
+                            color: 'white',
+                            border: 'none', 
+                            borderRadius: '10px',
+                            fontWeight: 'bold' 
+                        }}
+                    >
+                        More Projects on GitHub
+                    </motion.button>
+                </a>
+            </div>
+        </div>
+      </section>
     </div>
   );
 };

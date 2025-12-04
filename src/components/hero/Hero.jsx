@@ -52,8 +52,8 @@ const Hero = () => {
           <motion.h1 variants={textVariants}>Software Engineer</motion.h1>
           
           <motion.p variants={textVariants}>
-            Master's candidate at WPI specializing in Full Stack Development and AI. 
-            I build scalable web applications using React, AWS, and Python to turn complex ideas into reality.
+            Recent Graduate at WPI specializing in Full Stack Development and AI.<br></br>
+            I love building scalable web applications using Reactjs, Nodejs, AWS, and Python to turn ideas into reality.
           </motion.p>
 
           <motion.div variants={textVariants} className="buttons">

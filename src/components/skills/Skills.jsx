@@ -6,7 +6,8 @@ import {
   FaHtml5, FaCss3Alt, FaJava, FaReact, FaNodeJs, FaGitAlt, FaNpm, FaAws, FaPython, FaDocker 
 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiPostgresql } from "react-icons/si"; // Utilizing generic SQL icon
+import { SiPhp, SiPostgresql, SiTypescript } from "react-icons/si"; // Utilizing generic SQL icon
+import { VscAzure } from "react-icons/vsc";
 import { BiSolidZap } from "react-icons/bi"; // For the lightning bolt
 
 const variants = {
@@ -30,12 +31,15 @@ const iconList = [
   { icon: <FaHtml5 />, name: "html-5" },
   { icon: <FaCss3Alt />, name: "css3" },
   { icon: <IoLogoJavascript />, name: "JavaScript" },
+  { icon: <SiTypescript />, name: "TypeScript" },
   { icon: <FaReact />, name: "reactjs" },
   { icon: <FaNodeJs />, name: "nodejs" },
+  { icon: <SiPhp />, name: "PHP" },
   { icon: <FaGitAlt />, name: "git" },
   { icon: <FaNpm />, name: "npm" },
   { icon: <SiPostgresql />, name: "sql-db" },
   { icon: <FaAws />, name: "aws" },
+  { icon: <VscAzure />, name: "azure" },
   { icon: <FaPython />, name: "python" },
   { icon: <FaDocker />, name: "docker" },
 ];
@@ -54,8 +58,8 @@ const Skills = () => {
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
-          I focus on helping your brand grow
-          <br /> and move forward
+          I focus on turning complex ideas into
+          <br /> scalable digital reality
         </p>
         <hr />
       </motion.div>
@@ -71,8 +75,7 @@ const Skills = () => {
           </h1>
         </div>
       </motion.div>
-      
-      {/* NEW CONTENT STARTS HERE */}
+
       <motion.div className="listContainer" variants={variants}>
         
         {/* 1. Tech Stack Icons */}
@@ -95,15 +98,15 @@ const Skills = () => {
         <motion.div className="skillList" variants={variants}>
             <div className="skillItem">
                 <BiSolidZap className="bolt"/>
-                <p>Develop highly interactive Front end / User Interfaces for your web and mobile applications</p>
+                <p><b>Full Stack Engineering:</b> Building responsive, type-safe web applications using React, TypeScript, and JavaScript.</p>
             </div>
             <div className="skillItem">
                 <BiSolidZap className="bolt"/>
-                <p>Progressive Web Applications ( PWA ) in normal and SPA Stacks</p>
+                <p><b>Cloud & Backend Architecture:</b> Designing scalable, serverless infrastructure on AWS and optimizing high-performance databases.</p>
             </div>
             <div className="skillItem">
                 <BiSolidZap className="bolt"/>
-                <p>Integration of third party services such as Firebase/ AWS / Digital Ocean</p>
+                <p><b>AI & ML Integration:</b> Implementing intelligent RAG workflows and predictive models using LangChain, OpenAI, and Python.</p>
             </div>
         </motion.div>
 
