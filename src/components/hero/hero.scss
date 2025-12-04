@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .hero {
     height: calc(100vh - 100px);
     overflow: hidden;
@@ -16,6 +18,13 @@
       display: flex; 
       align-items: flex-end; // 2. Push the image to the BOTTOM (Floor)
       justify-content: center; // Center it horizontally in the right half
+
+      @include mobile {
+      height: 50%;
+      width: 100%;
+      top: unset;
+      bottom: 0;
+    }
       
       img {
           width: 120%;  // Maintain aspect ratio
@@ -51,6 +60,15 @@
       width: 50%; 
       position: relative; 
       z-index: 2; 
+
+      @include mobile {
+        height: 50%;
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+      }
+
   
       h2 {
         font-size: 30px;
@@ -61,6 +79,9 @@
       h1 {
         font-size: 90px;
         white-space: nowrap;
+        @include mobile {
+            font-size: 36px;
+          }
       }
   
       p {

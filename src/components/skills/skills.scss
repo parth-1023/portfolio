@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .skills {
     background: linear-gradient(180deg, #0c0c1d, #111132);
     height: 100%;
@@ -11,6 +13,12 @@
       display: flex;
       align-items: center;
       gap: 20px;
+
+      @include mobile {
+        align-self: center;
+        text-align: center;
+        flex-direction: column;
+      }
   
       p {
         font-weight: 200;
@@ -23,6 +31,10 @@
         width: 500px;
         border: none;
         border-top: 0.5px solid gray;
+
+        @include mobile {
+          width: 300px;
+        }
       }
     }
   
@@ -31,11 +43,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      @include mobile {
+        width: 100%;
+      }
   
       .title {
         display: flex;
         align-items: center;
         gap: 50px;
+
+        @include mobile {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
   
         h1 {
           font-size: 66px;
@@ -54,6 +76,11 @@
       width: 100%;
       align-items: center;
       gap: 80px;
+
+      @include mobile {
+      flex-direction: column;
+      width: 100%;
+    }
   
       // 1. Tech Stack Grid
       .techStack {

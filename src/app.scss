@@ -45,3 +45,9 @@ section.auto-height {
         background-color: white;
     }
 }
+
+@mixin mobile {
+    @media (max-width: 738px) {
+      @content;
+    }
+  }
