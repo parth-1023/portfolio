@@ -6,9 +6,9 @@ const items = [
   {
     id: 1,
     title: "Physics Simulator",
-    img: "./physics.jpeg",
+    img: "./physics.png",
     desc: "An interactive, game-based physics learning platform where students can simulate physics concepts, run calculations, and receive real-time feedback.",
-    link: "https://parth-1023.github.io/game-gem/",
+    link: "https://ball-simulator.vercel.app/",
   },
   {
     id: 2,
