@@ -20,6 +20,11 @@
       z-index: 99;
       padding: 0 20px; // Prevent touching edges on small screens
 
+      @include mobile {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+      }
 
   .textContainer {
     flex: 1;
@@ -27,11 +32,19 @@
     flex-direction: column;
     gap: 40px;
 
+    @include mobile {
+      align-items: center;
+      gap: 20px;
+    }
 
     h1 {
       font-size: 100px;
       line-height: 88px;
 
+      @include mobile {
+        font-size: 50px;
+        line-height: 50px;
+      }
     }
 
     span {
@@ -59,13 +72,17 @@
   .formContainer {
     flex: 1;
     position: relative;
-    
+    width: 100%;
 
     .phoneSvg {
       stroke: orange;
       position: absolute;
       margin: auto;
       z-index: -1;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     form {

@@ -51,3 +51,11 @@ section.auto-height {
       @content;
     }
   }
+
+section.skills-section {
+    @include mobile {
+      height: auto !important; 
+      min-height: 100vh;
+      scroll-snap-align: start !important;
+    }
+}

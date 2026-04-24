@@ -27,6 +27,11 @@
     height: 100%;
     overflow: hidden;
 
+    @include mobile {
+      align-items: flex-start;
+      padding-top: 180px; // Clear the sticky progress header with extra breathing room
+    }
+
     .wrapper {
       max-width: 1366px;
       height: 100%;
@@ -36,10 +41,22 @@
       justify-content: center;
       gap: 50px;
 
+      @include mobile {
+        flex-direction: column;
+        padding: 20px; 
+        justify-content: flex-start;
+      }
+
 
       .imageContainer {
         flex: 1;
         height: 50%;
+
+        @include mobile {
+          width: 100%;
+          flex: none;
+          max-height: 300px;
+        }
 
 
         img {
@@ -56,16 +73,29 @@
         flex-direction: column;
         gap: 30px;
 
+        @include mobile {
+          align-items: center;
+          text-align: center;
+          gap: 15px;
+          transform: none !important;
+        }
+
 
         h2 {
           font-size: 72px;
 
+          @include mobile {
+            font-size: 36px;
+          }
         }
 
         p {
           color: gray;
           font-size: 20px;
 
+          @include mobile {
+            font-size: 16px;
+          }
         }
 
         button {

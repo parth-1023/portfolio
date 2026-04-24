@@ -43,6 +43,10 @@
       width: 50%;
       font-weight: bold;
       z-index: 0; // Move behind image
+
+      @include mobile {
+        font-size: 30vh;
+      }
     }
   
     .wrapper {

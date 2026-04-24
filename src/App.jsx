@@ -16,7 +16,7 @@ const App = () => {
       <Hero/>
       </section>
     <section id="Skills"><Parallax type="skills"/></section>
-    <section><Skills/></section>
+    <section className="skills-section"><Skills/></section>
     <section id = "Portfolio"><Parallax type="portfolio"/></section>
     <Portfolio/>
     <section id="Experience" className="auto-height"> 
