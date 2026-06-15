@@ -12,10 +12,10 @@ const experienceData = [
     location: "Worcester, MA",
     date: "Aug 2025 - Present",
     desc: [
-      "Designing an interactive, game-based physics learning platform using React and TypeScript.",
-      "Architecting a scalable, serverless stack on AWS with Lambda and API Gateway for low-latency simulations.",
+      "Modernizing a responsive React UI for a healthcare platform serving 1,000+ daily users.",
+      "Leading a backend migration from Node.js to Django on AWS, cutting onboarding time 50%.",
     ],
-    tags: ["React", "TypeScript", "AWS", "Node.js"],
+    tags: ["React", "Django", "AWS", "OAuth"],
     icon: <FaLaptopCode />,
     current: true,
   },
@@ -26,10 +26,10 @@ const experienceData = [
     location: "Worcester, MA",
     date: "Feb 2025 - May 2025",
     desc: [
-      "Engineered a distributed, AI-driven Web App using React, LangChain, and OpenAI.",
-      "Developed a RAG workflow with FAISS vector stores to reduce model hallucinations.",
+      "Built an AI tutoring chatbot for 200+ students using LangChain and OpenAI.",
+      "Deployed the platform on AWS with CloudWatch monitoring for 100% uptime.",
     ],
-    tags: ["React", "LangChain", "OpenAI", "Python"],
+    tags: ["React", "LangChain", "OpenAI", "AWS"],
     icon: <FaUniversity />,
     current: false,
   },
@@ -52,12 +52,12 @@ const experienceData = [
     title: "Backend Developer Intern",
     company: "AKVI",
     location: "Mumbai, India",
-    date: "July 2022",
+    date: "Jul 2022 - Aug 2022",
     desc: [
-      "Enhanced operational efficiency by 50% by architecting a scalable MySQL database.",
-      "Developed internal admin panels to streamline database management.",
+      "Built a JavaScript and PHP dashboard that cut supply-chain cycle time by 30%.",
+      "Designed a MySQL data layer, cutting manual steps by 50%.",
     ],
-    tags: ["MySQL", "Database Design", "PHP"],
+    tags: ["MySQL", "PHP", "JavaScript"],
     icon: <FaBriefcase />,
     current: false,
   },
@@ -76,9 +76,8 @@ const experienceData = [
     icon: <FaUniversity />, // Uses existing import
     current: false,
   },
-  
-];
 
+];
 const Experience = () => {
   const ref = useRef(null);
 
@@ -129,23 +128,23 @@ const TimelineItem = ({ item, index }) => {
     >
       <div className="content">
         <div className="header">
-            <div className="role-group">
-                <h3>{item.title}</h3>
-                {item.current && <span className="badge">Current</span>}
-            </div>
-            <div className="icon-box">{item.icon}</div>
+          <div className="role-group">
+            <h3>{item.title}</h3>
+            {item.current && <span className="badge">Current</span>}
+          </div>
+          <div className="icon-box">{item.icon}</div>
         </div>
-        
+
         <span className="subtitle">
           {item.company} • {item.location} • {item.date}
         </span>
-        
+
         <ul>
           {item.desc.map((d, i) => (
             <li key={i}>{d}</li>
           ))}
         </ul>
-        
+
         <div className="tags">
           {item.tags.map((tag, i) => (
             <span key={i} className="tag">
@@ -154,7 +153,7 @@ const TimelineItem = ({ item, index }) => {
           ))}
         </div>
       </div>
-      
+
       {/* The Dot on the timeline */}
       <div className="dot"></div>
     </motion.div>

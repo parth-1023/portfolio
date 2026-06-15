@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./portfolio.scss";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const items = [
   {
@@ -46,34 +46,42 @@ const items = [
     link: "https://ball-simulator.vercel.app/",
   },
 ];
-const Single = ({ item }) => {
-  const ref = useRef();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-
+const ProjectCard = ({ item, index }) => {
   return (
-    <section>
-      <div className="container">
-        <div className="wrapper">
-          <div className="imageContainer" ref={ref}>
-            <img src={item.img} alt="" />
-          </div>
-          <motion.div className="textContainer" style={{ y }}>
-            <h2>{item.title}</h2>
-            <p>{item.desc}</p>
-            {/* Link wrapper for the button */}
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <motion.button whileHover={{ scale: 1.1, backgroundColor: "white", color: "black" }}
-              >Check it out!</motion.button>
-            </a>
-          </motion.div>
+    <motion.div
+      className="projectCardScrollWrapper"
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.2, ease: "easeOut" }}
+    >
+      <motion.div
+        className="projectCard"
+        whileHover={{
+          y: -8,
+          borderColor: "rgba(255, 165, 0, 0.4)",
+          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 165, 0, 0.15)",
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="imageContainer">
+          <img src={item.img} alt={item.title} />
         </div>
-      </div>
-    </section>
+        <div className="textContainer">
+          <h3>{item.title}</h3>
+          <p>{item.desc}</p>
+          <a href={item.link} target="_blank" rel="noopener noreferrer">
+            <motion.button
+              whileHover={{ scale: 1.05, backgroundColor: "white", color: "black" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Check it out!
+            </motion.button>
+          </a>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -82,7 +90,7 @@ const Portfolio = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["end end", "start start"],
+    offset: ["start start", "end end"],
   });
 
   const scaleX = useSpring(scrollYProgress, {
@@ -91,50 +99,32 @@ const Portfolio = () => {
   });
 
   return (
-    <div className="portfolio" ref={ref}>
+    <section className="portfolio auto-height" ref={ref}>
       <div className="progress">
         <h1>Projects</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
 
-      {items.map((item) => (
-        <Single item={item} key={item.id} />
-      ))}
-
-      <section>
-        <div className="container">
-          <div
-            className="wrapper"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '30px'
-            }}
-          >
-            <h2 style={{ fontSize: '56px', textAlign: 'center' }}>Check out more of my work</h2>
-            <a href="https://github.com/parth-1023" target="_blank" rel="noopener noreferrer">
-              <motion.button
-                whileHover={{ scale: 1.1, backgroundColor: "white", color: "black" }}
-                style={{
-                  padding: '20px 60px',
-                  fontSize: '20px',
-                  cursor: 'pointer',
-                  backgroundColor: 'orange',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '10px',
-                  fontWeight: 'bold'
-                }}
-              >
-                More Projects on GitHub
-              </motion.button>
-            </a>
-          </div>
+      <div className="portfolioContainer">
+        <div className="grid">
+          {items.map((item, index) => (
+            <ProjectCard item={item} key={item.id} index={index} />
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+
+      <div className="moreWork">
+        <h2>Check out more of my work</h2>
+        <a href="https://github.com/parth-1023" target="_blank" rel="noopener noreferrer">
+          <motion.button
+            whileHover={{ scale: 1.1, backgroundColor: "white", color: "black" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            More Projects on GitHub
+          </motion.button>
+        </a>
+      </div>
+    </section>
   );
 };
 

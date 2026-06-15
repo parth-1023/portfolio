@@ -50,24 +50,23 @@ const Hero = () => {
         >
           <motion.h2 variants={textVariants}>PARTH SHROFF</motion.h2>
           <motion.h1 variants={textVariants}>Software Engineer</motion.h1>
-          
+
           <motion.p variants={textVariants}>
-            Recent Graduate at WPI specializing in Full Stack Development and AI.<br></br>
-            I love building scalable web applications using Reactjs, Nodejs, AWS, and Python to turn ideas into reality.
+            Software Engineer with an M.S. in Computer Science from WPI. I build full-stack and AI-powered systems, from event-driven backends in Java, Go, and Python to React and Next.js frontends, and I like turning ideas into working software fast.
           </motion.p>
 
           <motion.div variants={textVariants} className="buttons">
             <a href="#Portfolio">
-                <motion.button variants={textVariants}>See Latest Works</motion.button>
+              <motion.button variants={textVariants}>See Latest Works</motion.button>
             </a>
             <a href="#Contact">
-                <motion.button variants={textVariants}>Contact Me</motion.button>
+              <motion.button variants={textVariants}>Contact Me</motion.button>
             </a>
             <a href="/Parth_Shroff_Resume.pdf" download>
-                <motion.button variants={textVariants}>See my Resume</motion.button>
+              <motion.button variants={textVariants}>See my Resume</motion.button>
             </a>
           </motion.div>
-          
+
           <motion.img
             variants={textVariants}
             animate="scrollButton"
