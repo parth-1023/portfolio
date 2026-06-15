@@ -5,41 +5,47 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "Code Generator",
-    img: "./v0clone.png",
-    desc: "A full-stack clone of v0.dev — describe any web app in plain English and watch it get built in real-time inside a live sandbox.",
-    link: "https://github.com/parth-1023/v0-clone",
+    title: "Catchline",
+    img: "./catchline.png",
+    desc: "A full-stack traceability and quality dashboard for seafood, forecasting freshness from real sensor data and routing each batch to the right sales lane based on revenue at risk.",
+    link: "https://shinkeios-lite-gamma.vercel.app/",
   },
   {
     id: 2,
-    title: "Physics Simulator",
-    img: "./physics.png",
-    desc: "An interactive, game-based physics learning platform where students can simulate physics concepts, run calculations, and receive real-time feedback.",
-    link: "https://ball-simulator.vercel.app/",
+    title: "PromptForge",
+    img: "./v0clone.png",
+    desc: "A full-stack AI code generation platform where a multi-agent system powered by Google Gemini writes code, installs dependencies, and returns a live preview from a single prompt.",
+    link: "https://github.com/parth-1023/v0-clone",
   },
   {
     id: 3,
+    title: "CampusPulse",
+    img: "./campuspulse.png",
+    desc: "An event-driven monitoring platform that streams live sensor telemetry through RabbitMQ, flags anomalies in real time, and visualizes incidents on an interactive 3D map.",
+    link: "https://github.com/parth-1023/campus-pulse",
+  },
+  {
+    id: 4,
+    title: "Distributed Job Scheduler",
+    img: "./scheduler.png",
+    desc: "A fault-tolerant job scheduler in Go that dispatches tasks across multiple Dockerized services and automatically detects and recovers from worker failures.",
+    link: "https://github.com/parth-1023/job-scheduler",
+  },
+  {
+    id: 5,
     title: "GPThermo",
     img: "./gpthermo.png",
     desc: "A distributed, AI-driven web application leveraging OpenAI and LangChain to provide guided problem-solving for complex thermodynamics problems.",
     link: "https://gpthermo.wpi.edu/",
   },
   {
-    id: 4,
-    title: "AI Pong",
-    img: "./aipong.png",
-    desc: "A classic Pong game reimagined with AI opponents trained using reinforcement learning techniques to challenge players of all levels.",
-    link: "https://github.com/parth-1023/AI-pong",
-  },
-  {
-    id: 5,
-    title: "Cricket World Cup Viz",
-    img: "./dataviz.png",
-    desc: "Data visualization dashboard showcasing stats and insights from the Cricket World Cup using dynamic charts and graphs.",
-    link: "https://vizhub.com/parth-1023/2e6f345d7b304c5ead755144aa27438b",
+    id: 6,
+    title: "Physics Simulator",
+    img: "./physics.png",
+    desc: "An interactive, game-based physics learning platform where students can simulate physics concepts, run calculations, and receive real-time feedback.",
+    link: "https://ball-simulator.vercel.app/",
   },
 ];
-
 const Single = ({ item }) => {
   const ref = useRef();
 
